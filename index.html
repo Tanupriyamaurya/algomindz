@@ -421,6 +421,34 @@ img:hover {
     0 20px 40px rgba(0, 0, 0, 0.25),
     0 0 35px rgba(34, 211, 238, 0.25); /* cyan glow */
 }
+/* ===============================
+   MINIMAL DOT CURSOR
+================================ */
+
+#custom-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  background: #000; /* black dot */
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition:
+    width 0.2s ease,
+    height 0.2s ease,
+    background 0.2s ease,
+    transform 0.1s ease;
+  z-index: 9999;
+}
+
+/* Hover state */
+#custom-cursor.active {
+  width: 24px;
+  height: 24px;
+  background: rgba(0, 0, 0, 0.15);
+}
 
 </style>
 </head>
@@ -695,6 +723,8 @@ img:hover {
             </div>
         </div>
     </footer>
+<!-- Custom Cursor -->
+<div id="custom-cursor"></div>
 
     <script>
         // Smooth scrolling for navigation links
@@ -735,6 +765,28 @@ img:hover {
 
   document.querySelectorAll(".animate-on-scroll").forEach(el => {
     observer.observe(el);
+  });
+</script>
+<script>
+  const cursor = document.getElementById("custom-cursor");
+
+  document.addEventListener("mousemove", (e) => {
+    cursor.style.left = e.clientX + "px";
+    cursor.style.top = e.clientY + "px";
+  });
+
+  // Elements that trigger hover effect
+  const hoverElements = document.querySelectorAll(
+    "a, button, .service-card, input, textarea"
+  );
+
+  hoverElements.forEach(el => {
+    el.addEventListener("mouseenter", () => {
+      cursor.classList.add("active");
+    });
+    el.addEventListener("mouseleave", () => {
+      cursor.classList.remove("active");
+    });
   });
 </script>
 
