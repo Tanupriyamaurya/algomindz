@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Get Started | Algomindz Solutions</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: "#2563eb",
+            secondary: "#1e40af",
+            accent: "#22d3ee",
+            dark: "#0f172a"
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Gradient background animation */
+    .gradient-bg {
+      background: linear-gradient(135deg, #2563eb, #1e40af, #22d3ee);
+      background-size: 400% 400%;
+      animation: gradientMove 10s ease infinite;
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Card hover */
+    .card {
+      transition: all 0.4s cubic-bezier(0.19,1,0.22,1);
+    }
+    .card:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 30px 60px rgba(0,0,0,0.25);
+    }
+
+    /* Button hover */
+    .btn {
+      transition: all 0.35s ease;
+    }
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 30px rgba(34,211,238,0.45);
+    }
+    /* ===============================
+   LOGO HOVER EFFECT
+================================ */
+.site-logo {
+  display: inline-block;
+  transition: all 0.45s cubic-bezier(0.19,1,0.22,1);
+}
+
+.site-logo:hover {
+  transform: translateY(-4px) scale(1.06);
+  background: linear-gradient(90deg, #2563eb, #22d3ee, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 10px 30px rgba(34,211,238,0.55));
+}
+/* ===============================
+   NAV LINK HOVER EFFECT (REUSED)
+================================ */
+.nav-link {
+  position: relative;
+  padding-bottom: 6px;
+  transition: all 0.35s ease;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, #2563eb, #22d3ee);
+  transition: width 0.35s ease;
+}
+
+.nav-link:hover {
+  transform: translateY(-3px);
+  color: #2563eb;
+  text-shadow: 0 6px 18px rgba(37,99,235,0.35);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+/* ===============================
+   HEADING HOVER EFFECT (NO LINE)
+================================ */
+/* ===============================
+   HEADING HOVER EFFECT (NO LINE)
+================================ */
+.heading-hover {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  transition: transform 0.35s ease, letter-spacing 0.35s ease;
+  z-index: 1;
+}
+
+.heading-hover::after {
+  content: "";
+  position: absolute;
+  inset: -10px;
+  background: radial-gradient(
+    circle,
+    rgba(34, 211, 238, 0.25),
+    transparent 70%
+  );
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  z-index: -1;
+  border-radius: 999px;
+}
+
+.heading-hover:hover {
+  transform: translateY(-4px);
+  letter-spacing: 0.5px;
+}
+
+.heading-hover:hover::after {
+  opacity: 1;
+  transform: scale(1);
+}
+/* SAME HEADING HOVER AS HOME PAGE */
+.about-item {
+  display: inline-block;
+  transition:
+    transform 0.4s cubic-bezier(0.19,1,0.22,1),
+    text-shadow 0.4s ease,
+    letter-spacing 0.4s ease,
+    color 0.4s ease;
+}
+
+.about-item:hover {
+  transform: translateY(-4px);
+  letter-spacing: 0.6px;
+  color: #2563eb;
+  text-shadow: 0 12px 30px rgba(37, 99, 235, 0.45);
+}
+/* HOME PAGE HERO HEADING EFFECT (HERO ONLY) */
+.hero-title {
+  display: inline-block;
+  transition:
+    transform 0.45s cubic-bezier(0.19,1,0.22,1),
+    text-shadow 0.45s ease,
+    letter-spacing 0.45s ease,
+    filter 0.45s ease;
+}
+
+.hero-title:hover {
+  transform: translateY(-6px);
+  letter-spacing: 0.6px;
+
+  /* Exact blue/cyan glow for blue background */
+  text-shadow:
+    0 12px 28px rgba(59, 130, 246, 0.55),
+    0 0 45px rgba(34, 211, 238, 0.45);
+
+  filter: drop-shadow(0 14px 35px rgba(59,130,246,0.6));
+}
+
+/* ===============================
+   PARAGRAPH HOVER EFFECT 
+================================ */
+.text-hover {
+  transition: all 0.35s ease;
+}
+
+.text-hover:hover {
+  transform: translateY(-3px);
+  color: #1e40af;
+  text-shadow: 0 6px 18px rgba(37,99,235,0.25);
+}
+/* Hero Gradient + Hover */
+.hero-gradient {
+  background: linear-gradient(270deg, #2563eb, #1e40af, #3b82f6);
+  background-size: 600% 600%;
+  animation: gradientMove 10s ease infinite;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+ .hero-hover h1:hover {
+  background: linear-gradient(90deg, #ffffff, #22d3ee, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transform: translateY(-6px) scale(1.05);
+  filter: drop-shadow(0 0 25px rgba(255,255,255,0.6)); 
+} 
+
+.hero-hover p {
+  transition: all 0.35s ease;
+}
+
+.hero-hover p:hover {
+  color: #22d3ee;
+  transform: translateY(-3px);
+  text-shadow:
+    0 0 10px rgba(34, 211, 238, 0.8),
+    0 0 25px rgba(34, 211, 238, 0.6);
+}
+
+/* Entrance Animation */
+.hero-animate {
+  opacity: 0;
+  animation: fadeUp 1s ease forwards;
+}
+
+.hero-delay {
+  animation-delay: 0.3s;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+/* ===============================
+   HERO HEADING (HOME PAGE STYLE)
+================================ */
+.hero-animate {
+  line-height: 1.25; /* prevents g/y clipping */
+  padding-bottom: 10px;
+  color: #7dd3fc; /* cyan tone */
+  text-shadow: 0 0 35px rgba(34, 211, 238, 0.45);
+  transition: text-shadow 0.4s ease;
+}
+
+/* Optional: subtle glow increase on hover */
+.hero-hover:hover .hero-animate {
+  text-shadow: 0 0 45px rgba(34, 211, 238, 0.75);
+}
+
+/* ===============================
+   PARAGRAPH STYLE
+================================ */
+.hero-delay {
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 0 20px rgba(37, 99, 235, 0.35);
+}
+
+/* ===============================
+   ROCKET HOVER (ONLY ROCKET)
+================================ */
+
+
+.hero-hover h1:hover {
+  transform: translateY(-4px);
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+.hero-hover .rocket {
+  pointer-events: none; 
+}
+
+/* Magnetic heading base */
+.magnetic-heading {
+  display: inline-block;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.magnetic-heading .rocket {
+  pointer-events: none;
+}
+
+
+.hero-hover .rocket {
+  display: inline-block;
+  transition: none;
+  text-shadow: none;
+  filter: none;
+}
+
+  </style>
+</head>
+
+<body class="font-sans bg-white text-gray-800">
+
+<!-- Header -->
+<header class="bg-white shadow-sm sticky top-0 z-50">
+  <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+    <div class="text-2xl font-bold text-primary site-logo">
+  Algomindz<span class="text-secondary">Solutions</span>
+</div>
+
+    <a href="index.html" class="nav-link back-home">
+  ← Back to Home
+</a>
+
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero-gradient text-white py-24 hero-hover">
+  <div class="container mx-auto px-6 text-center max-w-3xl">
+    <h1 class="text-4xl md:text-5xl font-bold mb-6 hero-animate magnetic-heading">
+  Let’s Build Something Amazing <span class="rocket">🚀</span>
+</h1>
+
+
+    <p class="text-xl opacity-90 hero-animate hero-delay">
+      Tell us about your idea and we’ll help you turn it into a powerful digital product.
+    </p>
+
+    
+  </div>
+</section>
+
+
+<!-- Steps -->
+<section class="py-20 bg-gray-50">
+  <div class="container mx-auto px-6">
+    <div class="text-center">
+  <h2 class="about-item text-3xl font-bold text-center mb-14">
+  How We Get Started
+</h2>
+
+</div>
+
+
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+      <div class="card bg-white rounded-xl p-8 text-center">
+        <div class="text-4xl mb-4">💡</div>
+        <h3 class="text-xl font-semibold mb-3">Share Your Idea</h3>
+        <p class="text-gray-600 text-hover">
+  Describe your project goals, features, and challenges.
+</p>
+
+      </div>
+
+      <div class="card bg-white rounded-xl p-8 text-center">
+        <div class="text-4xl mb-4">🛠️</div>
+        <h3 class="text-xl font-semibold mb-3">We Design & Build</h3>
+        <p class="text-gray-600">
+          Our experts craft scalable, high-performance solutions.
+        </p>
+      </div>
+
+      <div class="card bg-white rounded-xl p-8 text-center">
+        <div class="text-4xl mb-4">🚀</div>
+        <h3 class="text-xl font-semibold mb-3">Launch & Grow</h3>
+        <p class="text-gray-600">
+          We deploy, optimize, and support your product long-term.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Form -->
+<section class="py-20 bg-white">
+  <div class="container mx-auto px-6 max-w-4xl w-full text-center hero-hover">
+    <!-- Heading with hero effect -->
+    <h2 class="about-item text-4xl md:text-5xl font-bold mb-10 transition-all duration-400">
+      Start Your Project
+    </h2>
+
+    <!-- Form -->
+    <form class="bg-gray-50 rounded-2xl p-10 space-y-6 shadow-xl mx-auto transition-all duration-500 hover:shadow-2xl hover:scale-[1.02]">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <input type="text" placeholder="Your Name" class="w-full px-5 py-4 rounded-lg border border-gray-200 focus:ring-2 focus:ring-cyan-400 outline-none transition-all duration-300 hover:shadow-md">
+        <input type="email" placeholder="Your Email" class="w-full px-5 py-4 rounded-lg border border-gray-200 focus:ring-2 focus:ring-cyan-400 outline-none transition-all duration-300 hover:shadow-md">
+      </div>
+
+      <select class="w-full px-5 py-4 rounded-lg border border-gray-200 focus:ring-2 focus:ring-cyan-400 outline-none transition-all duration-300 hover:shadow-md">
+        <option>Project Type</option>
+        <option>Mobile App Development</option>
+        <option>AR / VR Solution</option>
+        <option>SaaS Platform</option>
+        <option>UI / UX Design</option>
+      </select>
+
+      <textarea rows="5" placeholder="Tell us about your project..."
+        class="w-full px-5 py-4 rounded-lg border border-gray-200 focus:ring-2 focus:ring-cyan-400 outline-none transition-all duration-300 hover:shadow-md"></textarea>
+
+      <button type="submit"
+        class="btn w-full bg-primary text-white py-4 rounded-lg font-semibold hover:bg-white hover:text-cyan-400 hover:shadow-xl transition-all duration-500">
+        Submit Request
+      </button>
+    </form>
+  </div>
+</section>
+
+<footer class="bg-dark text-white py-10">
+  <div class="container mx-auto px-6 text-center">
+    <p class="text-gray-400">
+      © 2025 Algomindz Solutions. All rights reserved.
+    </p>
+  </div>
+</footer>
+
+<script>
+  document.querySelector("form").addEventListener("submit", e => {
+    e.preventDefault();
+    alert("Thank you! Our team will contact you shortly 🚀");
+    e.target.reset();
+  });
+</script>
+<script>
+  gsap.from(".site-logo", {
+    opacity: 0,
+    y: -30,
+    duration: 1,
+    ease: "power4.out"
+  });
+
+  gsap.from(".back-home", {
+    opacity: 0,
+    y: -20,
+    delay: 0.2,
+    duration: 0.9,
+    ease: "power4.out"
+  });
+</script>
+
+
+
+</body>
+</html>

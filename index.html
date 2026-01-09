@@ -580,9 +580,12 @@ nav a:hover::after {
       </p>
 
       <div class="flex flex-col sm:flex-row gap-4 justify-center hero-animate hero-delay">
-        <button class="bg-white text-primary px-8 py-3 rounded-lg font-semibold btn-ripple magnetic">
-          Get Started
-        </button>
+        <button
+  id="getStartedBtn"
+  class="bg-white text-primary px-8 py-3 rounded-lg font-semibold btn-ripple magnetic">
+  Get Started
+</button>
+
 
         <button class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold btn-ripple">
           View Portfolio
@@ -969,6 +972,11 @@ document.querySelectorAll(".service-card").forEach(card => {
         }
       }
     );
+  });
+</script>
+<script>
+  document.getElementById("getStartedBtn").addEventListener("click", () => {
+    window.location.href = "get-started.html";
   });
 </script>
 
